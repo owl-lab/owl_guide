@@ -33,7 +33,7 @@ She needs at least two files in this folder. The first one is of course the file
   let sqr_magic n = Mat.(magic n |> sqr)
 
 
-The second file she needs is a ``readme.md`` which provides a brief description of the shared script. Note that the first line of the ``readme.md`` will be used as a short description for the shared scripts. This short description will be displayed when you use ``Owl -list`` command to list all the available Zoo code snippet on your computer.
+The second file she needs is a ``#readme.md`` which provides a brief description of the shared script. Note that the first line of the ``#readme.md`` will be used as a short description for the shared scripts. This short description will be displayed when you use ``owl -list`` command to list all the available Zoo code snippets on your computer.
 
 .. code-block:: bash
 
@@ -55,7 +55,7 @@ The distribution is done via `gist.github.com <https://gist.github.com/>`_, so y
   owl -upload myscript
 
 
-The ``owl -upload`` command simply uploads all the files in ``myscript`` as a bundle to your `gist.github.com <https://gist.github.com/>`_ page. The command also prints out the url after a successful upload. In our case, you can check the updated bundle on `[this page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08>`_.
+The ``owl -upload`` command simply uploads all the files in ``myscript`` as a bundle to your `gist.github.com <https://gist.github.com/>`_ page. The command also prints out the url after a successful upload. In our case, you can check the updated bundle on `[this page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08>`_. Note that you need to login to `gist` and `git` to use the upload command.
 
 
 
@@ -86,6 +86,21 @@ Note that to use ``#zoo`` directive in ``utop`` you need to manually load the ``
 If you want to make ``utop`` load the library automatically by adding this line to ``~/.ocamlinit``.
 
 
+Specify Version of Scripts
+-------------------------------------------------
+
+Alice has modified her scripts several times to make it perfect. Each version is assigned a unique ``version id``, and different versions of code may work differently. How could Bob specify which vesion to use? Good news is that he barely needs to change his code.
+
+.. code-block:: ocaml
+
+  #!/usr/bin/env owl
+  #zoo "9f0892ab2b96f81baacd7322d73a4b08/71261b317cd730a4dbfb0ffeded02b10fcaa5948"
+
+  let _ = Coolmodule.sqr_magic 4 |> Owl.Mat.print
+
+
+The only thing he needs to add is a version id after the gist bundle id and a slash. Version id can be obtained from the `[gist's page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08>`_ under the "Revision" tab. If the version id is not specified, as shown in the previous code snippet, the latest version on the server will be used by default.
+
 
 Command Line Tool
 -------------------------------------------------
@@ -100,14 +115,16 @@ That's all. Zoo system is not complicated at all. There will be more features to
   Usage:
     owl [utop options] [script-file]  execute an Owl script
     owl -upload [gist-directory]      upload code snippet to gist
-    owl -download [gist-id]           download code snippet from gist
+    owl -download [gist-id] [ver-id]  download code snippet from gist; download the latest version if ver-id not specified
     owl -remove [gist-id]             remove a cached gist
     owl -update [gist-ids]            update (all if not specified) gists
     owl -run [gist-id]                run a self-contained gist
     owl -info [gist-ids]              show the basic information of a gist
-    owl -list                         list all the cached gists
+    owl -list [gist-id]               list all cached versions of a gist; list all the cached gists if gist-id not specified
     owl -help                         print out help information
 
+
+Note that both ``run`` and ``info`` commands accept a full gist name in the format of ``gist-id/version-id``.
 
 
 Examples
