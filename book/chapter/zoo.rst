@@ -48,14 +48,14 @@ Share via Gist
 
 Second, Alice needs to distribute the files in ``myscript`` folder. But how?
 
-The distribution is done via `gist.github.com <https://gist.github.com/>`_, so you must have ``gist`` installed on your computer. E.g., if you use Mac, you can install ``gist`` with ``brew install gist``. Owl provides a simple command line tool to upload the Zoo code snippets. Note that you need to log into your ``gist`` and ``git`` account.
+The distribution is done via `gist.github.com <https://gist.github.com/>`_, so you must have ``gist`` installed on your computer. E.g., if you use Mac, you can install ``gist`` with ``brew install gist``. Owl provides a simple command line tool to upload the Zoo code snippets. Note that you need to log into your github account for ``gist`` and ``git``.
 
 .. code-block:: bash
 
   owl -upload myscript
 
 
-The ``owl -upload`` command simply uploads all the files in ``myscript`` as a bundle to your `gist.github.com <https://gist.github.com/>`_ page. The command also prints out the url after a successful upload. In our case, you can check the updated bundle on `[this page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08>`_. 
+The ``owl -upload`` command simply uploads all the files in ``myscript`` as a bundle to your `gist.github.com <https://gist.github.com/>`_ page. The command also prints out the url after a successful upload. In our case, you can check the updated bundle on `[this page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08>`_.
 
 
 
@@ -89,7 +89,7 @@ If you want to make ``utop`` load the library automatically by adding this line 
 Choose a Version of Scripts
 -------------------------------------------------
 
-Alice has modified and uploaded her scripts several times. Each version is assigned a unique ``version id``, and different versions of code may work differently. How could Bob specify which version to use? Good news is that he barely needs to change his code.
+Alice has modified and uploaded her scripts several times. Each version of her code is assigned a unique ``version id``. Different versions of code may work differently, so how could Bob specify which version to use? Good news is that, he barely needs to change his code.
 
 .. code-block:: ocaml
 
@@ -99,7 +99,7 @@ Alice has modified and uploaded her scripts several times. Each version is assig
   let _ = Coolmodule.sqr_magic 4 |> Owl.Mat.print
 
 
-The only thing he needs to add is a version id after the gist bundle id and a slash. Version id can be obtained from the `[gist's page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08>`_ under the "Revisions" tab. If the version id is not specified, as shown in the previous code snippet, the latest version on the server will be used by default.
+The only thing he needs to add is a version id after the gist bundle id and a slash. Version id can be obtained from the gist's `[revisions page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08/revisions>`. If the version id is not specified, as shown in the previous code snippet, the latest version on the server will be used by default.
 
 
 Command Line Tool
