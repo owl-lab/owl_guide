@@ -55,7 +55,7 @@ The distribution is done via `gist.github.com <https://gist.github.com/>`_, so y
   owl -upload myscript
 
 
-The ``owl -upload`` command simply uploads all the files in ``myscript`` as a bundle to your `gist.github.com <https://gist.github.com/>`_ page. The command also prints out the url after a successful upload. In our case, you can check the updated bundle on `[this page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08>`_. Note that you need to login to `gist` and `git` to use the upload command.
+The ``owl -upload`` command simply uploads all the files in ``myscript`` as a bundle to your `gist.github.com <https://gist.github.com/>`_ page. The command also prints out the url after a successful upload. In our case, you can check the updated bundle on `[this page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08>`_.
 
 
 
