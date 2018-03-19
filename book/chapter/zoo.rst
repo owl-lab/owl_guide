@@ -17,7 +17,7 @@ To illustrate how to use Zoo, let's start with a synthetic scenario. The scenari
 Now let me see how Alice manages to do so in the following, step by step.
 
 
-Create A Script
+Create a Script
 -------------------------------------------------
 
 First, Alice needs to create a folder (e.g., ``myscript`` folder) for her shared script. OK, what to put in the folder then?
@@ -86,7 +86,7 @@ Note that to use ``#zoo`` directive in ``utop`` you need to manually load the ``
 If you want to make ``utop`` load the library automatically by adding this line to ``~/.ocamlinit``.
 
 
-Choose a Version of Scripts
+Choose a Version of Script
 -------------------------------------------------
 
 Alice has modified and uploaded her scripts several times. Each version of her code is assigned a unique ``version id``. Different versions of code may work differently, so how could Bob specify which version to use? Good news is that, he barely needs to change his code.
