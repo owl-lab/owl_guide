@@ -99,7 +99,7 @@ Alice has modified and uploaded her scripts several times. Each version of her c
   let _ = Coolmodule.sqr_magic 4 |> Owl.Mat.print
 
 
-The only thing he needs to add is a version id after the gist bundle id and a slash. Version id can be obtained from the gist's `[revisions page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08/revisions>`. If the version id is not specified, as shown in the previous code snippet, the latest version on the server will be used by default.
+The only thing he needs to add is a version id after the gist bundle id and a slash. Version id can be obtained from the gist's `[revisions page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08/revisions>`_. If the version id is not specified, as shown in the previous code snippet, the latest version on the server will be used by default.
 
 
 Command Line Tool
