@@ -94,12 +94,24 @@ Alice has modified and uploaded her scripts several times. Each version of her c
 .. code-block:: ocaml
 
   #!/usr/bin/env owl
-  #zoo "9f0892ab2b96f81baacd7322d73a4b08/71261b317cd730a4dbfb0ffeded02b10fcaa5948"
+  #zoo "9f0892ab2b96f81baacd7322d73a4b08?vid=71261b317cd730a4dbfb0ffeded02b10fcaa5948"
 
   let _ = Coolmodule.sqr_magic 4 |> Owl.Mat.print
 
 
-The only thing he needs to add is a version id after the gist bundle id and a slash. Version id can be obtained from the gist's `[revisions page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08/revisions>`_. If the version id is not specified, as shown in the previous code snippet, the latest version on the Gist server will be used by default.
+The only thing he needs to add is a version id after the gist bundle id using a scheme that is similar to that of a URL query component. Version id can be obtained from the gist's `[revisions page] <https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08/revisions>`_. If the version id is not specified, as shown in the previous code snippet, the latest version on the Gist server will be used by default.
+
+That leads to another question though: how often do we need to contact the Gist server to retreat the version information? Every time? That's not necessary in many cases. To enable users control freely how often it should be, besides ``vid``, we also provode another parameter in the zoo naming scheme: ``tol``. It is a threshold value that indicates a gist's tolerance for the time it exists on the local cache. Any gist that exists on a user's local cache longer than ``tol`` is deemed outdated and thus requires update the latest ``vid`` information from the Gist server before being used.
+
+.. code-block:: ocaml
+
+  #!/usr/bin/env owl
+  #zoo "9f0892ab2b96f81baacd7322d73a4b08?tol=60"
+
+  let _ = Coolmodule.sqr_magic 4 |> Owl.Mat.print
+
+
+If ``tol`` is not set, ``zoo`` will always try to use the latest locally cached version. Also, when ``vid`` is set, the ``tol`` parameter will be ignored.
 
 
 Command Line Tool
@@ -124,7 +136,7 @@ That's all. Zoo system is not complicated at all. There will be more features to
     owl -help                         print out help information
 
 
-Note that both ``run`` and ``info`` commands accept a full gist name in the format of ``gist-id/version-id``. If the version id is not specified, the latest version on the Gist server will be used by default.
+Note that both ``run`` and ``info`` commands accept a full gist name instead of only a gist id.
 
 
 Examples
