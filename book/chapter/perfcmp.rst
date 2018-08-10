@@ -7,10 +7,11 @@ We present the results of a thorough comparison between Owl and other popular so
 `ndarray <http://ocaml.xyz/chapter/ndarray.html>`_, `slicing <http://ocaml.xyz/chapter/slicing.html>`_, and `linear algebra <http://ocaml.xyz/chapter/linalg.html>`_ for detailed description of them.
 
 1) Conventional math operations. They can further be divided into two groups by the number of n-dimensional array they accept as input:
+
   - one: ``abs``, ``exp``, ``log``, ``sqrt``, ``cbrt``, ``sin``, ``tan``, ``asin``, ``sinh``, ``asinh``, ``round``, ``sort``, ``sigmoid``, ``copy``.
   - two: ``add``, ``mul``, ``div``, ``pow``, ``hypot``, ``min2``, ``fmod``.
-  For these operations, we generate one or two uniformly distributed vector(s) as the input. The size of each vector increases from 10 to 1,000,000.
-  Specifically, to ensure a fair comparison, we modify the in-place sort function in Owl to make it return a copy.
+
+  For these operations, we generate one or two uniformly distributed vector(s) as the input. The size of each vector increases from 10 to 1,000,000. Specifically, to ensure a fair comparison, we modify the in-place sort function in Owl to make it return a copy.
 
 2) Fold and scan operations, including ``max``, ``sum``, ``prod``, ``cumprod``, and ``cummax``. These operations accept an "axis" parameter to specify along which dimension to perform the computation. Without loss of generality, for each of them, we generate a uniformly distributed 4-dimensional array, and choose the first and last dimension to perform computation. The size of each dimension is the same, increasing from 10 to 60.
 
