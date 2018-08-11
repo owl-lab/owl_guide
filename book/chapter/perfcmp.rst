@@ -19,7 +19,7 @@ We present the results of a thorough comparison between Owl and other popular so
 
 4) Indexing and slicing, we benchmark the ``get_slice`` function in Owl. We choose two input shapes: ``[|10; 300; 3000|]`` and ``[|3000; 300; 10|]``, and apply different index combinations, e.g. ``[[-1;0]; [0;1]; []]``.
 
-5) Linear Algebra functions, including ``matmul``, ``inv``, ``eigenvals``, ``svd``, ``lu``, and ``qr``. We use square matrix of order ``n`` as input, where ``n`` increases from 10 to 1000.
+5) Linear Algebra functions, including ``matmul``, ``inv``, ``eigenvals``, ``svd``, ``lu``, and ``qr``. We use a square matrix of order ``n`` as input, where ``n`` increases from 10 to 1000.
 
 We use Owl version 0.4.0, Numpy version 1.14.3, and Julia version 0.6.3. Each observation is repeated for 30 times, with outliers being trimmed.
 The rest of this article presents the evaluation results.
@@ -29,8 +29,8 @@ The rest of this article presents the evaluation results.
 Vectorised Math Operations
 -------------------------------------------------
 
-The ndarray module in Owl includes a full set of vectorised unary and binary mathematical functions. These functions are mapped to each element in the input ndarray.
-We choose a group of representative operations considering computation type and complexity for evaluation. For example, ``log2`` and ``sub`` are not used, since we have already chosen the similar ``log`` and ``add`` operations.
+The ndarray module in Owl includes a full set of vectorised unary and binary mathematical functions. These functions map to each element in the input ndarray to the output with specific tranformation functions.
+We choose a group of representative operations considering computation type and complexity for evaluation. For example, ``log2`` and ``sub`` are not used, since we have already selected the ``log`` and ``add`` operations with equivalent complexity.
 
 Also, since Numpy and Julia do not have ``sigmoid``, we calculate it using existing operations. For example, the code in Python:
 
@@ -155,9 +155,10 @@ One thing is noteworthy is that Owl's ``copy`` function is slower than the other
 Fold and Scan Operations
 -------------------------------------------------
 
-Fold and scan operations share similar interface. They both have an axis  parameter to specify along which axis of the input ndarray to perform certain type of calculation.
-A fold function, or "reduction" function as is called in some other numerical libraries, reduces one dimension of a ndarray to one, and accumulates the value along that dimension according to the applied calculation.
-Scan functions are similar, only that they do not change the shape of input.
+Fold and scan operations share the similar interface. They both have an axis parameter to specify along which axis of the input ndarray to perform certain type of calculation.
+
+A fold function, or "reduction" function as is called in some other numerical libraries, reduces one dimension of a ndarray to one, and accumulates the value along that dimension according to the applied calculation. Scan functions are similar, only that they do not change the shape of input. 
+
 In this part we choose the widely used maximum, summation, and multiplication calculations for both.
 
 .. figure:: ../figure/perf/op_eval23.png
@@ -194,7 +195,8 @@ Repeat Operations
 -------------------------------------------------
 
 The ``repeat`` function in Owl repeats the elements in ndarray according the repetition specified by an integer array, the i-th element of which specifies the number of times that the individual entries of the i-th dimension of input ndarray should be repeated.
-``tile`` is similar, but it repeats the whole input along specified dimensions.
+
+``tile`` is similar, but it repeats the whole input along specified dimensions. These two functions are also referred to as inner and outer repetition respectively.
 
 .. figure:: ../figure/perf/op_eval28.png
    :width: 100%
@@ -207,7 +209,9 @@ The ``repeat`` function in Owl repeats the elements in ndarray according the rep
    :alt: tile
 
 We exclude results of Julia in the comparison, since its repeat operations are orders of magnitude slower than that of Owl and Numpy.
+
 Owl has shown the advantage for repeat operations. Part of the reason is that , multiple axes repeat in Numpy is implemented with multiple basic single axis repeat operation, whereas Owl has adopted an algorithm that repeats along multiple axes without generating intermediate results.
+
 
 
 Slicing Operation
@@ -263,4 +267,5 @@ The results are shown as below.
    :alt: eigvals
 
 The performance for linear algebra operations are similar, since they all call the low level LAPACK and BLAS libraries to perform the required calculation.
+
 As to the performance of QR decomposition, most of its time is spent in LAPACK routines. Owl's LAPACK interface passes data directly to LAPACK, while Numpy's interface implementation preprocesses the data according to different conditions, thus trying to improve the performance.
