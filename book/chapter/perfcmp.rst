@@ -185,7 +185,7 @@ In this part we choose the widely used maximum, summation, and multiplication ca
    :align: center
    :alt: cumprod
 
-For fold and scan operations, except for ``max``, Owl operations are not the fastest. The performance varies for different computation.
+For fold and scan operations, except for ``max``, Owl operations are not the fastest. The performance varies for different computations.
 Similar to vectorised math operations, the fold functions of Numpy and Julia also utilise AVX/SSE to boost the performance, while in Owl they are implemented as simple ``for`` loops with varied strides. This explains the performance gap for ``sum`` and ``prod``.
 
 
@@ -229,7 +229,7 @@ We apply 8 different indices for two 3-dimensional arrays in slicing, and the re
 Linear Algebra Operations
 -------------------------------------------------
 
-Linear Algebra functions are usually categorised into matrix/vector products, decompositions, matrix eigenvalues, solving and inverting matrix, etc. In this section we choose to test multiplication, SVD/LU/QR decomposition, eigenvalue computation, and inversion functions for matrix. Since LU decomposition is not provided in Numpy, we use ``scipy.linalg.lu`` from the Scipy linear algebra library.
+Linear Algebra functions are usually categorised into matrix/vector products, decompositions, matrix eigenvalues, solving and inverting matrix, etc. In this section we choose to test multiplication, SVD/LU/QR decomposition, eigenvalue computation, and inversion functions for matrix. Since LU decomposition is not provided in Numpy, we use ``scipy.linalg.lu`` from the Scipy linear algebra library instead.
 The results are shown as below.
 
 .. figure:: ../figure/perf/op_eval33.png
@@ -263,4 +263,4 @@ The results are shown as below.
    :alt: eigvals
 
 The performance for linear algebra operations are similar, since they all call the low level LAPACK and BLAS libraries to perform the required calculation.
-As to the performance of QR decomposition, most of its time is spent in LAPACK routines. Owl's LAPACK interface passes data directly to LAPACK, while Numpy's interface implementation preprocesses the data according to different conditions, trying to reduce to improve the performance.
+As to the performance of QR decomposition, most of its time is spent in LAPACK routines. Owl's LAPACK interface passes data directly to LAPACK, while Numpy's interface implementation preprocesses the data according to different conditions, thus trying to improve the performance.
