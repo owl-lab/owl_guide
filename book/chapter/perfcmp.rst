@@ -262,5 +262,5 @@ The results are shown as below.
    :align: center
    :alt: eigvals
 
-The performance for linear algebra operations are similar, since they all call the low level LAPACK and BLAS libraries to performance the required calculation.
+The performance for linear algebra operations are similar, since they all call the low level LAPACK and BLAS libraries to perform the required calculation.
 As to the performance of QR decomposition, most of its time is spent in LAPACK routines. Owl's LAPACK interface passes data directly to LAPACK, while Numpy's interface implementation preprocesses the data according to different conditions, trying to reduce to improve the performance.
