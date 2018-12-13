@@ -178,21 +178,3 @@ One thing worth noting is that, if you pass in empty string in ``Plot.create`` f
    :scale: 50 %
    :align: center
    :alt: jupyter example 03
-
-
-
-Using Sketch.sh
--------------------------------------------------
-
-As the third alternative besides `utop` and notebook, `Sketch.sh <https://sketch.sh/>`_ provides a really cool way to play with Owl directly in your browser without installing any software. Moreover, because Sketch is originally designed as a playground for Facebook Reason, you can even try out Owl with Reason language directly.
-
-The usage is straightforward, you simply visit `Sketch.sh <https://sketch.sh/>`_ website and type your code there. Sketch has bundled Owl base library so you can call all the functions defined in the base and evaluate them locally. Sketch also implements a set of useful functions that allow you to fork and share your code snippets easily like using a notebook, the only difference is that everything runs locally in your browser.
-
-
-.. figure:: ../figure/sketch_example_01.png
-   :scale: 70 %
-   :align: center
-   :alt: sketch example 01
-
-
-Another exciting feature that `Khoa Nguyen <https://github.com/thangngoc89>`_ is currently working on is to automatically convert the input code between Reason and OCaml. This will effectively reduce a lot of overhead when migrating code between two languages.
