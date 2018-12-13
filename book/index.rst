@@ -65,8 +65,8 @@ Here is a list of on-going and finished Owl-related projects, as well as some ex
 
 * :doc:`project/proposal`
 * :doc:`project/finished`
-* `Google Inception Demo <http://138.68.155.178/index.html>`_
-* `Neural Style Transfer Demo <http://138.68.155.178/neuraltrans.html>`_
+* `Google Inception Demo <http://demo.ocaml.xyz/index.html>`_
+* `Neural Style Transfer Demo <http://demo.ocaml.xyz/neuraltrans.html>`_
 
 
 
