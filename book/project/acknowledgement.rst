@@ -5,9 +5,13 @@ Owl is built on top of an enormous amount of previous work. Without the efforts 
 
 While designing and developing the various components in Owl, I have been studying many systems and keep learning from them. The following is an incomplete list of individuals/projects/software who made significant contributions to Owl. I owe a great debt of gratitude to these ingenious people. The credit goes to them.
 
-Because Owl is always under active development, there might be a lag between the development code and the list here. In case you think there is something/someone missing in the list, please do contact me. I will try to make this list up-to-date.
+Because Owl is always under active development, there might be a lag between the development code and the lists here. In case you think there is something/someone missing in the list, please do contact me. I will try to make this list up-to-date.
 
-- Tremendous support and help from my `colleagues <http://ocamllabs.io/people/>`_ in `OCaml Labs <http://ocamllabs.io/>`_ and `System Research Group <https://www.cl.cam.ac.uk/research/srg/netos/people/>`_ in the Computer Lab.
+
+Contributors
+-------------------------------------------------
+
+- Great support from my `colleagues <http://ocamllabs.io/people/>`_ in `OCaml Labs <http://ocamllabs.io/>`_ and `System Research Group <https://www.cl.cam.ac.uk/research/srg/netos/people/>`_ in the Computer Lab.
 
 - The interface design are heavily influenced by `Numpy <http://www.numpy.org/>`_, `SciPy <https://www.scipy.org/>`_, `Julia <https://julialang.org/>`_, `Matlab <https://www.mathworks.com/products/matlab.html>`_.
 
@@ -40,3 +44,12 @@ Because Owl is always under active development, there might be a lag between the
 - `Jérémie Dimino <https://github.com/diml>`_ and many others built the powerful `building system <https://github.com/ocaml/dune>`_ and convenient `toplevel <https://github.com/diml/utop>`_ for OCaml.
 
 - Other projects which have been providing useful insights: `Oml <https://github.com/hammerlab/oml>`_, `pareto <https://github.com/superbobry/pareto>`_.
+
+
+Open Source Projects
+-------------------------------------------------
+
+Owl is partially based on several open-source projects which contribute a significant amount of original novelty.
+
+* `DiffSharp <http://diffsharp.github.io/DiffSharp/>`_ and `Hype <http://hypelib.github.io/Hype/>`_, by `Atilim Gunes Baydin <http://www.cs.nuim.ie/~gunes/>`_, `Barak A. Pearlmutter <http://www.bcl.hamilton.ie/~barak/>`_, and et al. Code ported to Algodiff and Optimise modules.
+* `dolog <https://github.com/UnixJunkie/dolog>`_ by `Francois BERENGER <https://github.com/UnixJunkie>`_. Code ported to Log module.

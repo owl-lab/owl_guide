@@ -65,8 +65,8 @@ Here is a list of on-going and finished Owl-related projects, as well as some ex
 
 * :doc:`project/proposal`
 * :doc:`project/finished`
-* `Google Inception Demo <http://138.68.155.178/index.html>`_
-* `Neural Style Transfer Demo <http://138.68.155.178/neuraltrans.html>`_
+* `Google Inception Demo <http://demo.ocaml.xyz/index.html>`_
+* `Neural Style Transfer Demo <http://demo.ocaml.xyz/neuraltrans.html>`_
 
 
 
@@ -84,11 +84,7 @@ You can reach me in the following ways. Regarding the matters on funding and col
 Credits
 -------------------------------------------------
 
-Owl is partially based on several open-source projects which contribute a significant amount of original novelty. Here is an incomplete list of such projects. Please contact me in case you find any project should be included but missing in the list.
-
-* :doc:`project/acknowledgement` to Owl's contributors.
-* `DiffSharp <http://diffsharp.github.io/DiffSharp/>`_ and `Hype <http://hypelib.github.io/Hype/>`_, by `Atilim Gunes Baydin <http://www.cs.nuim.ie/~gunes/>`_, `Barak A. Pearlmutter <http://www.bcl.hamilton.ie/~barak/>`_, and et al. Code ported to Algodiff and Optimise modules.
-* `dolog <https://github.com/UnixJunkie/dolog>`_ by `Francois BERENGER <https://github.com/UnixJunkie>`_. Code ported to Log module.
+Owl owes a great debt of gratitude to its contributors and other open source projects. Please refer to :doc:`project/acknowledgement` page for the full list.
 
 
 
