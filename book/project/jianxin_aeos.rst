@@ -6,66 +6,84 @@ by Jianxin Zhao
 
 Recent research on *parameter tuning* mostly focus on hyper-parameter tuning, such as optimising the parameters of stochastic gradient in machine learning applications.
 However, tuning code and parameters in low-level numerical libraries is of the same importance.
-`ATLAS <http://math-atlas.sourceforge.net/>`_ and the recent `Intel Math Kernel Library <https://software.intel.com/mkl>`_ are both software libraries of optimised math routines for science and engineering computation.
+For example, `ATLAS <http://math-atlas.sourceforge.net/>`_ and the recent `Intel Math Kernel Library (MKL) <https://software.intel.com/mkl>`_ are both software libraries of optimised math routines for science and engineering computation.
 They are widely used in many popular high-level platforms such as Matlab and  TensorFlow.
-The reason these libraries can provide optimal performance is that they have adopted the paradigm of Automated Empirical Optimisation of Software, or AEOS.
-That is, a library choose the best method and parameter to use on a given architecture to do a required operation.
-For example, for linear algebra routines, highly optimised code runs much faster than a naively coded routine.
-Naturally, optimised code are usually platform- and hardware-specific. An optimised routine on one machine usually performs bad on the other.
+One of the reasons these libraries can provide optimal performance is that they have adopted the paradigm of Automated Empirical Optimisation of Software, or AEOS.
+That is, a library chooses the best method and parameter to use on a given architecture to do a required operation.
+One highly optimised routine may run much faster than a naively coded one.
+Naturally, optimised code is usually platform- and hardware-specific. An optimised routine on one machine usually performs bad on the other.
 
-Though `Owl <http://ocaml.xyz/>`_  currently does not plan to improve the performance of the low-level libraries it depends on, as an initial endeavour to apply such paradigm in Owl, one suitable tuning target is the parameters of *OpenMP* used in Owl.
+Though `Owl <http://ocaml.xyz/>`_  currently does not plan to improve the performance of the low-level libraries it depends on, as an initial endeavour to apply such paradigm in Owl, one tuning point is the parameters of OpenMP used in Owl.
 
 
 Use OpenMP to boost computation
 -----------------------------------------------------
 
-Many current generic computers contains shared memory multiprocessors.
+Currently many computers contain shared memory multiprocessors.
 `OpenMP <https://www.openmp.org/>`_ is an application programming interface that supports multi-platform shared memory multiprocessing programming in C or Fortran, supported on a plethora of hardware and software platforms.
-Owl has already utilized OpenMP on many key math operations to boost their performance by threading calculation.
+It is used in key operations in libraries such as Eigen and MKL.
+Owl has also utilised OpenMP on many math operations to boost their performance by threading calculation.
 
-For example, the figure below shows that when we apply the :math:`sin` function on a N-Dimensional Array (ndarray) in Owl, on my 4-core CPU MacBook, the OpenMP version only takes about a third of the execution time compared with the non-OpenMP version.
+For example, the figure below shows that when we apply the :math:`sin` function on a N-Dimensional Array (ndarray) in Owl, on a 4-core CPU MacBook, the OpenMP version only takes about a third of the execution time compared with the non-OpenMP version.
 
 
 .. figure:: ../figure/owl_aeos_sin_perf_mac.png
-   :width: 80%
+   :width: 50%
    :align: center
    :alt: omp_sin
 
 
 However, as is often the case, performance improvement does not come for free.
-Overhead of using OpenMP comes from time spent on scheduling chunks of work to each thread, managing locks on critical sections, and startup time that creates threads, etc.
+Overhead of using OpenMP comes from time spent on scheduling chunks of work to each thread, managing locks on critical sections, and startup time of creating threads, etc.
 Therefore, when the input ndarray is small enough, or the calculation is simple enough, these overheads might overtake the benefit of threading.
-The question is thus to choose whether to use.
+Now the question is, what is a suitable input size to use OpenMP?
 
 
 Why simple solution does not work
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Simply setting a fixed value for all the operations are inefficient, since the `complexity of math operations <https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations>`_ varies greatly, and the difference is even starker when compare their performance on different machines.
-(The previous practice of using a fixed value for all operations leads to performance deterioration.)
+This question would be easy to solve if there is one single suitable input size threshold for every operation.
+Alas, that's not the case. Let's do a small experiment.
+We compare the performance of two operations, :math:`abs` and :math:`sin`, in three cases: run it without using OpenMP, with 2 threads OpenMP, and with 4 threads OpenMP.
+
+
+.. figure:: ../figure/owl_aeos_cross.png
+   :width: 100%
+   :align: center
+   :alt: omp_cross
+
+
+The result shows that, with growing input sizes, for :math:`sin` operation, the OpenMP version outperforms the non-OpenMP version at a size of less than 1000, but for :math:`abs` operation, that crosspoint is about 1000,000.
+The `complexity of math operations <https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations>`_ varies greatly, and the difference is even starker when compare their performance on different machines.
 
 This issue becomes more complex when considered in real applications.
-We know that even the most advanced neural network application can be disassembled into basic math operations.
-`This example <https://gist.github.com/jzstark/17af84423b15b53704ecdc53b48f34b9>`_  shows a simplified function to compute cost and perform backward propagations in a two-layer neural network which can be trained to recognise hand-written digits.
-No fancy functions used, only basic ones such as :math:`add`, :math:`mul`, :math:`sigmoid`, :math:`slice`, etc., and thus are affected by OpenMP.
-In such a moderately complex application, one operation may need to deal with different sizes of input dynamically.
+We know that even the training and inference on a complex neural network can be seen as a computation graph, with each node being basic math operations such as :math:`conv`, :math:`add`, :math:`dot`, :math:`sigmoid`, :math:`uniform`, etc.
+In a computation graph, we need to deal with operation with vastly different complexity and input sizes.
 
-Considering these factors, we need a operation-level fine-tuned solution.
+Considering these factors, we need a fine-grained solution to decide a suitable threshold for each operation.
 
 
 Implementation
 -----------------------------------------------------
 
-Towards this end, we implement an initial AEOS module in Owl to tackle this issue.
-The idea is to add a *tuning* phase before installing Owl, so that each operation learns a suitable threshold parameter to decide if the OpenMP will be used or not, depending on input size.
+Towards this end, we implement an AEOS module.
+The idea is to add a *tuning* phase before compiling and installing Owl, so that each operation learns a suitable threshold parameter to decide if OpenMP should be used or not, depending on input size.
 
-The key idea is simple. We implement two versions of each operation, one using OpenMP and the other not. We then measure their executing time for various sizes of input. After removing outliers, a linear regression is performed to find a suitable input size threshold to decide if using OpenMP or not.
+The key idea of parameter tuning is simple.
+We implement two versions of each operation, one using OpenMP and the other not. We then measure their executing time for various sizes of input.
+Each measurement is repeated multiple times, and to reduce the effect of outliers, only the values that are within first and third percentile are used.
+After removing outliers, regression is performed to find a suitable input size threshold to decide if using OpenMP or not.
+According to our initial experiment, linear regression is fit to estimate the OpenMP parameters.
+
+Since this tuning phase is executed before compiling Owl, the AEOS module is made independent of Owl, and all the necessary implementation, including math function, regression, utilities etc., are implemented separately to ensure that future changes of Owl do not affect the AEOS module.
+
+The tuned parameters then need to be passed to Owl.
+When the OpenMP switch is turned on, the AEOS module generates a header file which contains the definition of macros, each of which defines a threshold for one operation. When this header file is not generated or is left blank, pre-defined default values are used.
+After that, Owl is compiled with this header file.
 
 The design of this module focuses on keeping tuning simple, effective, and flexible.
-First, the tuning phase should be executed before compiling Owl.
-Therefore, the AEOS module should be made independent of Owl, and all the necessary implementation, including math function, regression, utilities etc. are implemented separately to ensure that future changes of Owl do not affect the AEOS module.
-
-Second, each operation is implemented as a single OCaml module, so that support for new operations can be easily added. The interface of a module is shown as below:
+Each operation is implemented as a single OCaml module, so that support for new operations can be easily added.
+The interface of a module is shown as below:
 
 
 .. code-block:: ocaml
@@ -83,32 +101,32 @@ Second, each operation is implemented as a single OCaml module, so that support 
     val make : unit -> t
     (** Create the tuner. *)
 
-    let tune : t -> unit
+    val tune : t -> unit
     (** Tuning process. *)
 
-    let save_data : t -> unit
+    val save_data : t -> unit
     (** Save tuned data to csv file for later analysis. *)
 
-    let to_string t -> string
-    (** Convert the tuned paramter(s) to string to be written on file *)
+    val to_string t -> string
+    (** Convert the tuned parameter(s) to string to be written on file *)
 
   end
 
 
 We expect that tuning does not have to be only about OpenMP parameters, and that different regression methods could be used in the future.
-For example, the `Theil–Sen estimator <https://www.tandfonline.com/doi/abs/10.1080/01621459.1968.10480934>`_ can be plugged in for parameter estimation.
-In each module, arbitrary tuning procedures can be plugged in as long as the simple interface is satisfied.
+For example, the `Theil–Sen estimator <https://www.tandfonline.com/doi/abs/10.1080/01621459.1968.10480934>`_ can be plugged in for parameter estimation if necessary.
+In each module, arbitrary tuning procedures can be plugged in as long as the interface is satisfied.
 
-The AEOS module is implemented in such way that brings little change to the main Owl library. The code can be viewed in this `pull request <https://github.com/owlbarn/owl/pull/332>`_, and is now merged into the main branch of Owl. You only need to switch the *ENABLE_OPENMP* flag from :math:`0` to :math:`1` in the `dune file <https://github.com/owlbarn/owl/blob/master/src/owl/dune>`_ to use this feature.
+The AEOS module is implemented in such way that brings little change to the main Owl library. The code can be viewed in this `pull request <https://github.com/owlbarn/owl/pull/332>`_, and is now merged into the main branch of Owl. You only need to switch the *ENABLE_OPENMP* flag from :math:`0` to :math:`1` in the `dune file <https://github.com/owlbarn/owl/blob/master/src/owl/dune>`_ to try this feature.
 
 
 Evaluation
 -----------------------------------------------------
 
 To evaluate the performance of tuned OpenMP thresholds parameters, we need a metric to compare two thresholds.
-Note that the effect of using the tuned parameters depends on the input sizes, and given two thresholds, any input ndarray of size that smaller than the smaller threshold or larger than the larger threshold can be considered not affected.
+Note that the effect of using the tuned parameters depends on the input sizes, and given two thresholds, any input ndarray of size that smaller than the smaller one or larger than the larger one can be considered not affected.
 
-Therefore, one metric to measure the difference of two thresholds can be calculated in such way: we generate a series of ndarray, whose sizes grow by certain steps until they reach a given maximum number; for each size that falls between these two thresholds, we calculate the performance improvement ratio of the OpenMP version function over the non-OpenMP version. The ratios are added up, and then amortised by the total number of generated ndarrays.
+Therefore, one metric to measure the difference of two thresholds can be calculated in such way: we generate a series of ndarrays, whose sizes grow by certain steps until they reach a given maximum number; for each size that falls between these two thresholds, we calculate the performance improvement ratio of the OpenMP version function over the non-OpenMP version. The ratios are added up, and then amortised by the total number of ndarrays.
 Hereafter we use this averaged ratio as performance metric.
 
 
@@ -120,8 +138,9 @@ Hereafter we use this averaged ratio as performance metric.
 | Raspberry Pi | 1189        | 209          | 41          | 0           | 0              |
 +--------------+-------------+--------------+-------------+-------------+----------------+
 
-
-The above table shows the parameters that are tuned and used in the evaluation. We can see that they vary greatly across different operations and different machines, depending on their computation complexity.
+This table presents the tuned parameters values of a selective operations on a MacBook with a 1.1Ghz Intel Core m3 CPU and a Raspberry Pi 3B.
+We can see that they vary across different operations and different machines, depending on their computation complexity.
+For example, on MacBook, the tuning result is "max\_int", which means that for the relatively simple :math:`sqrt` calculation, OpenMP is not required, but that's not the case on Raspberry Pi. Also, we note that the less powerful Raspberry Pi tends to get lower thresholds for all these operations.
 
 
 .. figure:: ../figure/owl_aeos_perf.png
@@ -130,14 +149,21 @@ The above table shows the parameters that are tuned and used in the evaluation. 
    :alt: aeos mac
 
 
-The figure above shows the evaluation of a selective operations on a MacBook with a 1.1Ghz Intel Core m3 CPU and a Raspberry Pi 3B.
-We compare each generated parameter with 30 random generated thresholds. These measured average ratios are then presented as a box plot.
-It can be observed that in general more than 20\% average performance improvement can be expected on the Mac.
-The result on Raspberry Pi shows a larger deviation but also a slightly higher performance gain (about 30\%).
+We then evaluate the performance improvement of applying AEOS.
+We compare each generated parameter with 30 random generated thresholds. These measured average ratios are then presented as a box plot, as shown in the figure above. The y-axis uses the performance metric we've proposed.
 
+It can be observed that in general more than 20\% average performance improvement can be expected on the MacBook.
+The result on Raspberry Pi shows a larger deviation but also a slightly higher performance gain (about 30\% on average).
+One reason of this difference could be that a suitable threshold on Raspberry Pi tends to be smaller, and thus a larger probability to outperform a randomly generated value.
+Note that we cannot proclaim that the tuned parameters are definitely optimal, since the figure shows that in some rare cases a randomly found value indeed performs better.
+Also, the result seems to suggest that AEOS can provide a certain bound, though a large one, on the performance improvement, regardless of the type of operation.
+These interesting issues requires further investigation.
 
 What’s next?
 -----------------------------------------------------
 
-As said above, this is an initial effort to apply the AEOS paradigm in Owl. Though the result looks promising, there still exists a large room for improvement.
-For example, more operations that require tuning more than just OpenMP parameters could be included. Different regression methods could also be applied. In evaluation, besides performance, stability of the generated parameters might also need to be considered to give a full picture in evaluation.
+As said above, this is an initial effort to apply the AEOS paradigm in Owl. Though the result looks promising, there still exists many interesting questions to further explore.
+For example, more operations that require tuning more than just OpenMP parameters could be included.
+Analysis on single operation should be extended to practical applications.
+Different regression methods could also be applied.
+In evaluation, besides performance, stability of the generated parameters might also need to be considered to give a full picture in evaluation.
