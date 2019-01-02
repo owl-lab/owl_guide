@@ -44,7 +44,7 @@ Why simple solution does not work
 
 This question would be easy to solve if there is one single suitable input size threshold for every operation.
 Alas, that's not the case. Let's do a small experiment.
-We compare the performance of two operations, :math:`abs` and :math:`sin`, in three cases: running them without using OpenMP, with 2 threads OpenMP, and with 4 threads OpenMP.
+We compare the performance of two operations, :math:`abs` (calculate absolute value) and :math:`sin`, in three cases: running them without using OpenMP, with 2 threads OpenMP, and with 4 threads OpenMP.
 
 
 .. figure:: ../figure/owl_aeos_cross.png
@@ -53,7 +53,7 @@ We compare the performance of two operations, :math:`abs` and :math:`sin`, in th
    :alt: omp_cross
 
 
-The result shows that, with growing input size, for :math:`sin` operation, the OpenMP version outperforms the non-OpenMP version at a size of less than 1000, but for :math:`abs` operation (to calculate absolute value), that crosspoint is at about 1,000,000.
+The result shows that, with growing input size, for :math:`sin` operation, the OpenMP version outperforms the non-OpenMP version at a size of less than 1000, but for :math:`abs` operation, that crosspoint is at about 1,000,000.
 The `complexity of math operations <https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations>`_ varies greatly, and the difference is even starker when compare their performance on different machines.
 
 This issue becomes more complex when considered in real applications.
