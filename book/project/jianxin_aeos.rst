@@ -28,7 +28,7 @@ For example, the figure below shows that when we apply the :math:`sin` function 
 
 
 .. figure:: ../figure/owl_aeos_sin_perf_mac.png
-   :width: 30%
+   :width: 50%
    :align: center
    :alt: omp_sin
 
@@ -127,9 +127,9 @@ Evaluation
 -----------------------------------------------------
 
 To evaluate the performance of tuned OpenMP thresholds, we need a metric to compare them.
-Note that the effect of using the tuned parameters depends on input sizes, and given two thresholds, any input ndarray of size that smaller than the smaller one or larger than the larger one can be considered not affected.
-
-Therefore, one metric to measure the difference of two thresholds can be calculated in such way: we generate a series of ndarrays, whose sizes grow by certain steps until they reach a given maximum number; for each size that falls between these two thresholds, we calculate the performance improvement ratio of the OpenMP version function over the non-OpenMP version. The ratios are added up, and then amortised by the total number of ndarrays.
+One metric to compare two thresholds is proposed as below. We generate a series of ndarrays, whose sizes grow by certain steps until they reach a given maximum number, e.g. 1,000,000 used in the experiment below.
+Note that only input sizes that fall between these two thresholds are chosen to be used.
+We then calculate the performance improvement ratio of the OpenMP version function over the non-OpenMP version on these chosen ndarrays. The ratios are added up, and then amortised by the total number of ndarrays.
 Hereafter we use this averaged ratio as performance metric.
 
 
