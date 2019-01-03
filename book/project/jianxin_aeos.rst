@@ -28,7 +28,7 @@ For example, the figure below shows that when we apply the :math:`sin` function 
 
 
 .. figure:: ../figure/owl_aeos_sin_perf_mac.png
-   :width: 50%
+   :width: 70%
    :align: center
    :alt: omp_sin
 
