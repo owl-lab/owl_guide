@@ -81,9 +81,10 @@ By **Jianxin Zhao** | PhD | February 2019 | {:doc:`jianxin_cgraph`}
 
 In this project we are looking at computation interoperability of Owl with existing libraries such as TensorFlow.
 Our target is to have the best of both worlds. On one hand, we can define "how to compute" on Owl with its elegant and powerful syntax; on the other hand, we can execute the computation efficiently across various hardware devices, such as GPU and TPU, that TensorFlow supports.
-The most crucial part is to find a correct intermediate representation in exchanging computation between different platforms.
-Unlike many existing tools, we decide that Computation Graph, rather than neural network nodes, should be the fundamental abstraction.
+One crucial decision to make is to find the correct intermediate representation in exchanging computation between different platforms.
+Unlike many existing systems and tools, we decide that computation graph, rather than neural network graph, should be the fundamental abstraction.
 Based on this decision, we build an experimental converter system. It aims to export CGraph defined in Owl and execute it in TensorFlow.
-This system centres around the abstraction of TensorFlow computation graph, and the mapping between it and the Owl computation graph.
-It utilise the Save and Restore mechanism in TensorFlow to provide a concise workflow.
-We are keeping development on this system. At its initial phase, the current system is still quite limited, but we have demonstrated its potential with some real-world examples, including deep neural network inference and algorithmic differentiation.
+This system centres around the abstraction of TensorFlow computation graph, and how to map Owl computation graph to it.
+Our system utilises the Save and Restore mechanism in TensorFlow to provide a concise workflow.
+Currently we are actively developing the system. Thought still quite limited at the initial phase, the system has shown its potential in real-world examples, including deep neural network inference and algorithmic differentiation.
+In our next step, it would be interesting to see how our system can be extended and combined with related topics such as GPU and XLA. 
