@@ -1,4 +1,4 @@
-Convert Owl Computation Graph to TensorFlow
+Run Your Owl Computation on TensorFlow
 ===========================================
 
 After two years of intense development, Owl has achieved a full stack support for numerical computing and analysis. It provides clean syntax and powerful functionalities such as linear algebra, algorithmic differentiation, and deep neural network.
@@ -167,7 +167,7 @@ Again, in all these examples, we define a CGraph in Owl and execute it in Tensor
 The second example is `DNN inference <https://gist.github.com/jzstark/1ceebcdbdeee1ada39e9df4a8819c532>`_. Here the CGraph is defined by constructing a VGG-like DNN in Owl.
 As shown in the figure below, it represents a typical CGraph structure used in DNN.
 
-.. figure:: figs/graphdef_mnist.svg
+.. figure:: ../figure/graphdef_mnist.svg
    :width: 100%
    :align: center
    :alt: MNIST_OWL
@@ -175,7 +175,7 @@ As shown in the figure below, it represents a typical CGraph structure used in D
 As shown below, the converted Tensorflow CGraph looks similar when imported and shown in TensorBoard, the visualisation tool of TensorFlow.
 The only difference is that one Owl node tends to be converted to multiple TensorFlow nodes, and extra nodes are also required to be added for saving and loading variables.
 
-.. figure:: figs/graphdef_mnist_tf.png
+.. figure:: ../figure/graphdef_mnist_tf.png
    :width: 100%
    :align: center
    :alt: MNIST_TF
@@ -187,7 +187,7 @@ The third example is a simple `periodic oscillator <https://gist.github.com/jzst
 This example covers a different set of operations than the previous one, and contains a loop structure.
 In this case, we use a loop size of three, so you may notice that the whole graph consists of three identical sub-graphs.
 
-.. figure:: figs/graphdef_oscillator.svg
+.. figure:: ../figure/graphdef_oscillator.svg
    :width: 100%
    :align: center
    :alt: MNIST_OWL
@@ -199,14 +199,14 @@ In the `final example <https://gist.github.com/jzstark/80a0c6d9d861cb7b48d11ec16
 If you are interested enough to look at the code, you will see how easy it is to construct this graph of derivatives.
 The graph is shown as below. What's different in this graph is that it contains multiple outputs.
 
-.. figure:: figs/graphdef_diff.svg
+.. figure:: ../figure/graphdef_diff.svg
    :width: 100%
    :align: center
    :alt: Graphdef_diff
 
 These functions are then evaluated in TensorFlow, and drawn in the same Python script as below:
 
-.. figure:: figs/graphdef_algdiff.png
+.. figure:: ../figure/graphdef_algdiff.png
    :width: 80%
    :align: center
    :alt: Algodiff_derivatives
