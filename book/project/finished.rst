@@ -74,9 +74,16 @@ By **Jianxin Zhao** | PhD | November 2018 | `{AEOS Github} <https://github.com/o
 Automatic Empirical Optimisation of Software (AEOS) is crucial for high performance computing software. It is a methodology to generate optimised software using empirically tuned parameters. As an initial attempt to improve the performance of Owl with it, we build the AEOS module to tune the OpenMP parameters in Owl. OpenMP is an application programming interface that supports multi-platform shared memory multiprocessing programming. It is used in Owl to boost performance of basic operations. However, using OpenMP brings certain overhead, so that when the size of input data is small, or the operation is simple, the non-OpenMP version operation might be faster. Thus an optimal threshold varies for different operations and machines. In the AEOS module, each operation is abstracted as a stand-alone module, and uses linear regression to find this optimal threshold. Compared with the previous practice of set a single threshold for all OpenMP operations, using AEOS module further improves their performance. The AEOS module is designed in such way that extending it to accommodate more parameters or operations should be easy.
 
 
-Run Computation Graph on GPU/TPU ?????
+Run Your Owl Computation on TensorFlow
 -------------------------------------------------
 
 By **Jianxin Zhao** | PhD | February 2019 | {:doc:`jianxin_cgraph`}
 
-blah blah blah ....
+In this project we are looking at computation interoperability of Owl with existing libraries such as TensorFlow.
+Our target is to have the best of both worlds. On one hand, we can define "how to compute" on Owl with its elegant and powerful syntax; on the other hand, we can execute the computation efficiently across various hardware devices, such as GPU and TPU, that TensorFlow supports.
+The most crucial part is to find a correct intermediate representation in exchanging computation between different platforms.
+Unlike many existing tools, we decide that Computation Graph, rather than neural network nodes, should be the fundamental abstraction.
+Based on this decision, we build an experimental converter system. It aims to export CGraph defined in Owl and execute it in TensorFlow.
+This system centres around the abstraction of TensorFlow computation graph, and the mapping between it and the Owl computation graph.
+It utilise the Save and Restore mechanism in TensorFlow to provide a concise workflow.
+We are keeping development on this system. At its initial phase, the current system is still quite limited, but we have demonstrated its potential with some real-world examples, including deep neural network inference and algorithmic differentiation.
