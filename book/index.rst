@@ -79,6 +79,7 @@ You can reach me in the following ways. Regarding the matters on funding and col
 * `Slack Channel <https://join.slack.com/t/owl-dev-team/shared_invite/enQtMjQ3OTM1MDY4MDIwLTA3MmMyMmQ5Y2U0NjJiNjI0NzFhZDAwNGFhODBmMTk4N2ZmNDExYjZiMzI2N2M1MGNiMTUyYTQ5MTAzZjliZDI>`_
 * `Issue Tracker <https://github.com/ryanrhymes/owl/issues>`_
 
+Please refer to :doc:`project/people` page to get to know the members of Owl Development & Maintenance Team.
 
 
 Credits
