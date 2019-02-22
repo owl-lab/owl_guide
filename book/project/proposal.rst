@@ -135,7 +135,7 @@ Refer to
 Project 13. Ordinary Differential Equation Solver
 -------------------------------------------------------------------------------
 
-By `Ta-Chu Kao`<https://github.com/tachukao>_ and `Marcello Seri`<https://github.com/mseri>_ | ongoing | `{Owl-ODE Github} <https://github.com/owlbarn/owl_ode>`_
+By `Ta-Chu Kao <https://github.com/tachukao>`_ and `Marcello Seri <https://github.com/mseri>`_ | ongoing | `{Owl-ODE Github} <https://github.com/owlbarn/owl_ode>`_
 
 Owl Ode is a lightweight package for solving ordinary differential equations. Built on top of Owl's numerical library, Owl Ode was designed with extensibility and ease of use in mind and includes a number of classic ode solvers (e.g. Euler and Runge-Kutta, in both adaptive and fixed-step variants) and symplectic sovlers (e.g. Leapfrog), with more to come.
 
