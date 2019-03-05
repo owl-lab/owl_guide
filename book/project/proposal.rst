@@ -142,3 +142,11 @@ Owl Ode is a lightweight package for solving ordinary differential equations. Bu
 Taking full advantage of Owl's automatic differentiation library, we plan on supporting a number of fully differentiable solvers, which can be used for training Neural Odes in the not too distant future.
 
 Currently, Owl Ode includes a thin wrapper around Sundials Cvode (via sundialsml's own wrapper). Going forward, we aim to expose more functions in Sundials and provide bindings for other battle-tested ode solvers in ODEPACK and gsl.
+
+
+Project 14. Distributed ML on Unikernel for IoT
+-------------------------------------------------------------------------------
+
+By `Hiroshi Doyu <https://www.linkedin.com/in/hidoyu/>`_ (Ericsson) | ongoing | `{LwAE Github} <https://github.com/owlbarn/light_actor>`_
+
+Considering the coming enormous amount of hyper-scale IoT data, Mobile Edge servers would be heavily overloaded at peak times, especially raw data for ML training is too huge and insecure to move around quickly. To solve this problem, we need to offload those computation from Edge servers to any available computational devices at hand before sending them out to Edge. Usually those beyond-Edge devices are resource constraint. Container-based solutions are not enough efficient for this purpose. We expect Owl with MirageOS(Unikernel) to fill this gap because of its size conciseness. And LwAE is the way to distribute those computations over resource constraint IoT devices along with Cloud and Edge. We'll explore the possibility of beyond-Edge computation with Owl, MirageOS and LwAE.
