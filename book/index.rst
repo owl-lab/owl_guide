@@ -82,10 +82,14 @@ You can reach me in the following ways. Regarding the matters on funding and col
 Please refer to the :doc:`project/people` page to get to know the members of Owl Development & Maintenance Team.
 
 
-Credits
+Sponsors
 -------------------------------------------------
 
-Owl owes a great debt of gratitude to its contributors and other open source projects. Please refer to :doc:`project/acknowledgement` page for the full list.
+Owl owes a great debt of gratitude to its generous sponsors, contributors, and other open source projects. Please refer to
+
+* :doc:`project/sponsors`
+* :doc:`project/backers`
+* :doc:`project/acknowledgement`
 
 
 
