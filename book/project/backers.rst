@@ -1,4 +1,4 @@
-individual Backers
+Individual Backers
 =================================================
 
 Here is a list of individual backers, we thank their generous donation,
