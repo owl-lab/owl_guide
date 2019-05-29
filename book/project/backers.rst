@@ -7,3 +7,7 @@ computing.
 
 If you want to become a backer, please donate through
 `Paypal donation link <https://www.paypal.me/ocaml>`_.
+
+
+- Andrej Dundovic
+- John Christopher McAlpine
