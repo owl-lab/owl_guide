@@ -71,7 +71,7 @@ let extract_sections s =
   let _head = Owl.Utils.Stack.to_array sec_head in
   let _body = Owl.Utils.Stack.to_array sec_body in
   Array.iteri (fun i head ->
-    let body = _body.(i + 1) in
+    let body = _body.(i+1) in
     Owl.Utils.Stack.push sections (head, body)
   ) _head;
 
@@ -83,8 +83,8 @@ let parse_one_section regstr s =
   let apidoc = Owl.Utils.Stack.make () in
   let regex = Re.Pcre.regexp ~flags:[`MULTILINE] regstr in
   Re.all regex s |> List.iter (fun mc ->
-    let _fun_typ = Re.Group.get mc 1 in
-    let _fun_doc = Re.Group.get mc 2 in
+    let _fun_typ = Re.Group.get mc 2 in
+    let _fun_doc = Re.Group.get mc 1 in
     let _fun_tup = `Function (_fun_typ, _fun_doc) in
     Owl.Utils.Stack.push apidoc _fun_tup
   );
@@ -93,9 +93,9 @@ let parse_one_section regstr s =
 
 (* given a mli, parse to retrieve api doc and save to a hashtbl *)
 let parse_one_mli fname =
-  let res0 = "^[\s]*(type [\S\s]+?)\(\*\*[\s]*([\S\s]+?)[\s]*\*\)[\s]*?^[\s]*$" in
-  let res1 = "^[\s]*(val .+?)[ \n]*\(\*\*[ \n]*([\S\s]+?)[ \n]*\*\)" in
-  let res2 = "^[\s]*(exception [\S\s]+?)\(\*\*[\s]*([\S\s]+?)[\s]*\*\)[\s]*?^[\s]*$" in
+  let res0 = "^[\s]*\(\*\*[\s]*([\S\s]+?)[\s]*\*\)[\s]*?^[\s]*((type|and) [\S\s]+?)(\n\n|\Z)" in
+  let res1 = "^[\s]*\(\*\*[ \n]*([\S\s]+?)[ \n]*\*\)[\s]*?^[\s]*(val [\S\s]+?)(end|\n\n|\Z)" in
+  let res2 = "^[\s]*\(\*\*[\s]*([\S\s]+?)[\s]*\*\)[\s]*?^[\s]*(exception [\S\s]+?)(\n\n|\Z)" in
 
   let s = get_content fname in
   let sections = extract_sections s in
