@@ -15,7 +15,7 @@ owl/cblas/owl_cblas.mli | owl/cblas/owl_cblas.ml | High-level CBLAS API
 owl/lapacke/owl_lapacke_generated.mli | owl/lapacke/owl_lapacke_generated.ml | Low-level LAPACKE API
 owl/lapacke/owl_lapacke.mli | owl/lapacke/owl_lapacke.ml | High-level LAPACKE API
 base/optimise/owl_numdiff_generic_sig.ml | base/optimise/owl_numdiff_generic.ml | Numdiff.Generic Functor
-base/optimise/owl_algodiff_generic_sig.ml | base/optimise/owl_algodiff_generic.ml | Algodiff.Generic Functor
+base/optimise/algodiff/owl_algodiff_generic_sig.ml | base/optimise/algodiff/owl_algodiff_generic.ml | Algodiff.Generic Functor
 base/optimise/owl_optimise_generic_sig.ml | base/optimise/owl_optimise_generic.ml | Optimise.Generic Functor
 owl/optimise/owl_regression_generic_sig.ml | owl/optimise/owl_regression_generic.ml | Regression.Generic Functor
 base/neural/owl_neural_neuron_sig.ml | base/neural/owl_neural_neuron.ml | Neural.Neuron Functor

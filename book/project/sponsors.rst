@@ -15,3 +15,13 @@ If you want to become a sponsor, please `contact me <mailto:liang@ocaml.xyz>`_
 `OCaml Labs <http://ocamllabs.io/>`_ has been providing various types of
 support including computation resources, internship and studentship revolving
 around Owl's research and development.
+
+|
+|
+
+
+Collaborators
+-------------------------------------------------
+
+- `Neural Dynamics and Control Group <https://ghennequin.github.io/>`_, University of Cambridge, United Kingdom.
+- `Dynamical Systems, Geometry and Mathematical Physics <https://www.rug.nl/staff/m.seri/research>`_, University of Groningen, the Netherlands.
