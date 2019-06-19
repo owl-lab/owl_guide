@@ -41,4 +41,5 @@ Part II: Owl Numerical System
    ../project/proposal
    ../project/finished
    howto
+   faq
    reference
