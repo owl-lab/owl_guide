@@ -26,3 +26,4 @@ Collaborators
 
 - `Neural Dynamics and Control Group <https://ghennequin.github.io/>`_, University of Cambridge, United Kingdom.
 - `Dynamical Systems, Geometry and Mathematical Physics <https://www.rug.nl/staff/m.seri/research>`_, University of Groningen, the Netherlands.
+- `KC @ Computer Science and Engineering Department <http://kcsrk.info/>`_, Indian Institute of Technology, Madras.
