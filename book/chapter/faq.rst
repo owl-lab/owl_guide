@@ -1,8 +1,8 @@
 Frequently Asked Questions
 ==========================
 
-I get `Illegal instruction` when running my program.
-----------------------------------------------------
+Why do I get `Illegal instruction` error?
+-----------------------------------------
 
 The short answer is that this can happen when Owl or the program using Owl have
 been compiled on one system and are run on another.
@@ -36,7 +36,7 @@ environment using the ``resolutions`` field in you package.json:
 
 The somewhat longer answer is that some parts of Owl are written in C.  Since
 Owl is trying to be as performant as possible it is compiled with the CFLAGS
-option ``-march=native``. This tell GCC (the c compiler used) to use all
+option ``-march=native``. This tells GCC (the c compiler used) to use all
 available instruction-sets the machine's current CPU supports aka make the
 fastes binary possible. The downside of this is that the compiled binary may not
 run on older CPUs.
