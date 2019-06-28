@@ -8,13 +8,14 @@ The built documentation is hosted on [owlbarn.github.io](https://owlbarn.github.
 ## Instructions
 
 **Step 1**: You need to clone Owl's code repository from the Github, because the source files are needed to build up the documentation. The parser needs to parse both `ml` and `mli` files.
+You also needs owl-ode's code repository right next to.
 
 ```bash
 git clone https://github.com/owlbarn/owl.git
+git clone https://github.com/owlbarn/owl_ode.git
 ```
 
 **Step 2**: Install Owl library. The parser needs to call a couple of functions from Owl library so you need to install Owl locally. Please refer to Owl's documentation to see how to install.
-
 
 **Step 3**: Install Sphinx and plugin. You can use for example `pip` to install them. Python 2.7 should work fine. Owl uses `sphinxcontrib.bibtex` to generate bibliography.
 
@@ -23,7 +24,7 @@ pip install sphinx
 pip install sphinxcontrib.bibtex
 ```
 
-**Step 4**: When you finish installing all the dependencies, you need some configuration so the parser can find the Owl's source files. Enter into `owl_guide` root directory, edit the second line to make sure `API_SRC` points to the Owl's `src` folder. The following is an example on my laptop.
+**Step 4**: When you finish installing all the dependencies, you need some configuration so the parser can find the Owl's source files. Open `Makefile` and edit the second line to make sure `API_SRC` points to the Owl's `src` folder. The following is an example on my laptop.
 
 ```bash
 # Please only configure API_SRC to point to correct Owl src folder.
