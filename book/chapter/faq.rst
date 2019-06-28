@@ -4,8 +4,8 @@ Frequently Asked Questions
 Why do I get `Illegal instruction` error?
 -----------------------------------------
 
-The short answer is that this can happen when Owl or the program using Owl have
-been compiled on one system and are run on another.
+The short answer is that the binary of Owl or the program using Owl have
+been compiled on one platform and are run on another.
 
 If you use opam or dune to install or build your code you can use ``OWL_CFLAGS``
 to override the ``-march``-option that is used to build the binary, by default
