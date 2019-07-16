@@ -55,4 +55,5 @@ base/compute/owl_computation_symbol_sig.ml | base/compute/owl_computation_symbol
 base/compute/owl_computation_operator_sig.ml | base/compute/owl_computation_operator.ml | Computation.Operator
 base/compute/owl_computation_optimiser_sig.ml | base/compute/owl_computation_optimiser.ml | Computation.Optimiser
 base/compute/owl_computation_graph_sig.ml | base/compute/owl_computation_graph.ml | Computation.Graph
+base/misc/owl_countmin_sketch_sig.ml | base/misc/owl_countmin_sketch.ml | Base.Countmin_sketch
 ../../owl_ode/src/ode/ode.owldoc | ../../owl_ode/src/ode/ode.ml | Owl-ODE
