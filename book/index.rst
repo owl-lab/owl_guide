@@ -15,7 +15,7 @@ The project is based on the on-going research led by Liang Wang in the `Computer
 Funding
 -------------------------------------------------
 
-We are actively seeking for funding opportunities to support our research and development. Financial support can help us in focusing on building the most powerful system for modern scientific computing. For institutional funding, please `contact me <mailto:liang@ocaml.xyz>`_ directly.
+We are actively seeking funding opportunities to support our research and development. Financial support can help us focus on building the most powerful system for modern scientific computing. For institutional funding, please `contact me <mailto:liang@ocaml.xyz>`_ directly.
 
 For individuals, please use this `Paypal donation link <https://www.paypal.me/ocaml>`_.
 
