@@ -59,7 +59,7 @@ Here is a list of on-going and finished Owl-related projects, as well as some ex
 Contact
 -------------------------------------------------
 
-You can reach us in the following ways. Regarding the matters on funding and collaboration, email is preferred. I am looking forward to hearing from you!
+You can reach us in the following ways. Regarding the matters on funding and collaboration, email is preferred. We are looking forward to hearing from you!
 
 * `Email Us <mailto:liang@ocaml.xyz>`_
 * `Slack Channel <https://join.slack.com/t/owl-dev-team/shared_invite/enQtMjQ3OTM1MDY4MDIwLTA3MmMyMmQ5Y2U0NjJiNjI0NzFhZDAwNGFhODBmMTk4N2ZmNDExYjZiMzI2N2M1MGNiMTUyYTQ5MTAzZjliZDI>`_
