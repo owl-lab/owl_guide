@@ -1,4 +1,4 @@
-Part II: Owl Numerical System
+Owl Numerical System
 =================================================
 
 .. toctree::
