@@ -169,4 +169,4 @@ For example, you can use Zoo to perform DNN-based image classification in only 6
     InceptionV3.to_json ~top:5 labels
 
 
-Please refer to the gist pages listed above and the `zoo demo website <http://138.68.155.178/index.html>`_ for more information.
+Please refer to the gist pages listed above and the `zoo demo website <http://demo.ocaml.xyz/zoo.html>`_ for more information.

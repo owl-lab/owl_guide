@@ -1,11 +1,8 @@
 Architecture
 =================================================
 
-test
+TBD
 
-
-How the libraries are organised?
-
-How the source code is organised?
-
-Functor Stack
+- How the libraries are organised?
+- How the source code is organised?
+- Functor Stack

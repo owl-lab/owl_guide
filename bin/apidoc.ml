@@ -185,7 +185,7 @@ let parse_modules src_root dst_root modules =
   ) "" modules
   in
 
-  Printf.fprintf h "%s\n%s\n\n" "Owl's API Reference" (String.make 79 '=');
+  Printf.fprintf h "%s\n%s\n\n" "Owl API Reference" (String.make 79 '=');
   Printf.fprintf h ".. toctree::\n  :maxdepth: 2\n  :caption: Modules: ";
   Printf.fprintf h "#%i entries extracted at %s\n\n%s" !num_funs (make_timestamp ()) toc;
 
