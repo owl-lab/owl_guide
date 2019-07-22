@@ -35,13 +35,7 @@ The project should also produce comprehensive learning materials to promote OCam
 Learning
 -------------------------------------------------
 
-The full documentation consists of three parts. You can access both parts from the current page. The first two parts is a `Tutorial Book` which starts with a brief introductory of the OCaml language followed by a comprehensive tour of the overall system with many examples and explanations. Both parts are mostly written by hand.
-
-.. toctree::
-   :maxdepth: 1
-
-   basics/index
-
+The full documentation consists of two parts. You can access both parts from the current page. The first part is a comprehensive tour of Owl system with many examples and explanations.
 
 .. toctree::
    :maxdepth: 1
@@ -49,7 +43,7 @@ The full documentation consists of three parts. You can access both parts from t
    chapter/index
 
 
-The third part is the `API Reference` built automatically from Owl's repository by the `parser` I wrote. The API Reference cover the important functions and provides links to the source code form many functions in the library.
+The second part is the `API Reference` built automatically from Owl's repository. The API Reference covers most important functions and links back to their source code on the Github.
 
 .. toctree::
    :maxdepth: 1

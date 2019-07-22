@@ -11,3 +11,4 @@ If you want to become a backer, please donate through
 
 - Andrej Dundovic
 - John Christopher McAlpine
+- Francois Berenger
