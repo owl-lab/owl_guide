@@ -132,19 +132,8 @@ Refer to
 * `Khronos NNEF <https://www.khronos.org/nnef/>`_
 
 
-Project 13. Ordinary Differential Equation Solver
--------------------------------------------------------------------------------
 
-By `Ta-Chu Kao <https://github.com/tachukao>`_ and `Marcello Seri <https://github.com/mseri>`_ | ongoing | `{Owl-ODE Github} <https://github.com/owlbarn/owl_ode>`_
-
-Owl Ode is a lightweight package for solving ordinary differential equations. Built on top of Owl's numerical library, Owl Ode was designed with extensibility and ease of use in mind and includes a number of classic ode solvers (e.g. Euler and Runge-Kutta, in both adaptive and fixed-step variants) and symplectic sovlers (e.g. Leapfrog), with more to come.
-
-Taking full advantage of Owl's automatic differentiation library, we plan on supporting a number of fully differentiable solvers, which can be used for training Neural Odes in the not too distant future.
-
-Currently, Owl Ode includes a thin wrapper around Sundials Cvode (via sundialsml's own wrapper). Going forward, we aim to expose more functions in Sundials and provide bindings for other battle-tested ode solvers in ODEPACK and gsl.
-
-
-Project 14. Distributed ML on Unikernel for IoT
+Project 13. Distributed ML on Unikernel for IoT
 -------------------------------------------------------------------------------
 
 By `Hiroshi Doyu <https://www.linkedin.com/in/hidoyu/>`_ (Ericsson) | ongoing | `{LwAE Github} <https://github.com/owlbarn/light_actor>`_
