@@ -1,5 +1,5 @@
 # Please only configure API_SRC to point to correct Owl src folder.
-API_SRC="/Users/liang.wang/code/owl/src/"
+API_SRC="/home/liang/code/owl/src/"
 FORK_URL="https://github.com/ryanrhymes/owlbarn.github.io.git"
 FORK_DIR="${ROOT}_fork/owlbarn.github.io"
 

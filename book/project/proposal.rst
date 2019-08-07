@@ -121,13 +121,14 @@ Another focus is to further develop data visualisation component in Owl. The alg
 
 
 
-Project 12. Neural Network Exchange Format
+Project 12. Neural Network and Computation Graph Exchange Format
 -------------------------------------------------------------------------------
 
-This project aims to develop the functionality which can converts Owl's neural network definition into NNEF format. NNEF is a newly proposed open standard in industry for defining the graph structure of neural networks, independent from different deep learning frameworks. OpenVX and NNEF together reduce the hassles of deploying DNN-based services on various inference engines.
+This project aims to develop the functionality which can converts Owl's neural network and computation graph definition into NNEF or ONNX format. NNEF is a newly proposed open standard in industry for defining the graph structure of neural networks, independent from different deep learning frameworks. OpenVX and NNEF together reduce the hassles of deploying DNN-based services on various inference engines. On the other hand, ONNX is not really a standard but widely accepted by many mainstream DNN frameworks.
 
 Refer to
 
+* `ONNX Project <https://onnx.ai/>`_
 * `Khronos OpenVX <https://www.khronos.org/openvx/>`_
 * `Khronos NNEF <https://www.khronos.org/nnef/>`_
 
