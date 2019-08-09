@@ -140,3 +140,11 @@ Project 13. Distributed ML on Unikernel for IoT
 By `Hiroshi Doyu <https://www.linkedin.com/in/hidoyu/>`_ (Ericsson) | ongoing | `{LwAE Github} <https://github.com/owlbarn/light_actor>`_
 
 Considering the coming enormous amount of hyper-scale IoT data, Mobile Edge servers would be heavily overloaded at peak times, especially raw data for ML training is too huge and insecure to move around quickly. To solve this problem, we need to offload those computation from Edge servers to any available computational devices at hand before sending them out to Edge. Usually those beyond-Edge devices are resource constraint. Container-based solutions are not enough efficient for this purpose. We expect Owl with MirageOS(Unikernel) to fill this gap because of its size conciseness. And LwAE is the way to distribute those computations over resource constraint IoT devices along with Cloud and Edge. We'll explore the possibility of beyond-Edge computation with Owl, MirageOS and LwAE.
+
+
+Project 14. Sublinear Algorithms in Owl
+-------------------------------------------------------------------------------
+
+By `Pratap Singh <https://github.com/pratapsingh1729>`_ ( Indian Institute of Technology, Madras) | ongoing
+
+Sublinear algorithms are algorithms that give approximate solutions to problems with time or space complexity sublinear in the input size.  While previously the preserve of theoretical research, these methods are increasingly relevant for highly resource-constrained IoT devices receiving large amounts of data.  We seek to implement several useful sublinear algorithms in Owl, and evaluate their performance and real-world resource usage.  So far we have implemented the count-min sketch for approximate frequency counting and heavy-hitter finding.  Future possible areas for exploration include algorithms for approximate linear algebra, dimensionality reduction, stream sketching, and others.
