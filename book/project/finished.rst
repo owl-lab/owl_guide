@@ -58,7 +58,7 @@ Data analytics on the cloud is known to have issues such as increased response l
 
 Computer Vision & Performance Optimisation of Computation Graph
 ---------------------------------------------------------------
-By **Pierre Vandenhove** | MSc | October 2018 | `{MRCNN Github} <https://github.com/owlbarn/owl-mask-rcnn>`_ | `{ArXiv 1812} <https://arxiv.org/abs/1812.03770>`_ | :download:`{Thesis} <../papers/pierre.pdf>` | {:doc:`pierre_cgraph`}
+By **Pierre Vandenhove** | MSc | October 2018 | `{MRCNN Github} <https://github.com/owlbarn/owl-mask-rcnn>`_ | `{ArXiv 1812} <https://arxiv.org/abs/1812.03770>`_ :download:`{Report} <../papers/pierre.pdf>` | {:doc:`pierre_cgraph`}
 
 Computer vision tasks are known to be highly computationally-heavy, both performance-wise and memory-wise. They are thus especially relevant to put a numerical framework such as Owl to the test. The first part of this project focuses on the implementation of several computer vision applications using Owl's neural network library. The first such application is Microsoft's 'ResNet' network to perform simple image classification (`paper 1512.03385 <https://arxiv.org/abs/1512.03385>`_, `Resnet implementation in Owl <https://github.com/pvdhove/owl-resnet>`_). The second, more extensive one, is 'Mask R-CNN', which is one of the leading networks to perform object detection, segmentation and classification (`paper 1703.06870 <https://arxiv.org/abs/1703.06870>`_, `MRCNN implementation <https://github.com/pvdhove/owl-mask-rcnn>`_). This allowed exemplifying some use cases to improve Owl's flexibility and ease of use, as well as add some necessary operations.
 
