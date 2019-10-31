@@ -97,6 +97,8 @@ By `Ta-Chu Kao <https://github.com/tachukao>`_ and `Marcello Seri <https://githu
 
 Owl Ode is a lightweight package for solving ordinary differential equations. Built on top of Owl's numerical library, Owl Ode was designed with extensibility and ease of use in mind and includes a number of classic ode solvers (e.g. Euler and Runge-Kutta, in both adaptive and fixed-step variants) and symplectic sovlers (e.g. Leapfrog), with more to come.
 
-Taking full advantage of Owl's automatic differentiation library, we plan on supporting a number of fully differentiable solvers, which can be used for training Neural Odes in the not too distant future.
+Taking full advantage of Owl's automatic differentiation library, we plan on supporting a number of fully differentiable solvers, which can be used, for example, for `training Neural Odes <https://github.com/tachukao/adjoint_ode/>`.
 
-Currently, Owl Ode includes a thin wrapper around Sundials Cvode (via sundialsml's own wrapper). Going forward, we aim to expose more functions in Sundials and provide bindings for other battle-tested ode solvers in ODEPACK and gsl.
+Currently, Owl Ode includes separately-released thin wrappers around Sundials Cvode (via sundialsml's own wrapper) and ODEPACK, native ocaml `contact variational integrators <https://github.com/mseri/ocaml-cviode>`, and exposes a fully native ocaml module compatible with js_of_ocaml (owl-ode-base).
+
+Going forward, we aim to expose more functions in Sundials, make the API even more flexible and configurable, and provide bindings for other battle-tested ODE solvers.
