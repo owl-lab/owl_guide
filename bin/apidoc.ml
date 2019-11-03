@@ -26,7 +26,7 @@ let make_timestamp () =
 
 (** given a function type string, convert it to github line url *)
 let funloc_to_github_line fname fun_typ loc =
-  let regstr = "^[ ]*val[ ]*(.+?)[\s]+" in
+  let regstr = "^[ ]*val[ ]*(.+?)[\\s]+" in
   let regex = Re.Pcre.regexp regstr in
   let l = Re.all regex fun_typ |> Array.of_list in
   if Array.length l = 0 then None
@@ -57,7 +57,7 @@ let get_module_files fname =
 
 (* extract sections for source file *)
 let extract_sections s =
-  let regstr = "\(\*\*[ ]*\{[ \d]*(.+?)\}[ ]*\*\)[ \n]*" in
+  let regstr = "\\(\\*\\*[ ]*\\{[ \\d]*(.+?)\\}[ ]*\\*\\)[ \n]*" in
   let regex = Re.Pcre.regexp ~flags:[`MULTILINE] regstr in
   let sec_head = Owl.Utils.Stack.make () in
   let sec_body = Owl.Utils.Stack.make () in
@@ -93,9 +93,9 @@ let parse_one_section regstr s =
 
 (* given a mli, parse to retrieve api doc and save to a hashtbl *)
 let parse_one_mli fname =
-  let res0 = "^[\s]*(type [\S\s]+?)\(\*\*[\s]*([\S\s]+?)[\s]*\*\)[\s]*?^[\s]*$" in
-  let res1 = "^[\s]*(val .+?)[ \n]*\(\*\*[ \n]*([\S\s]+?)[ \n]*\*\)" in
-  let res2 = "^[\s]*(exception [\S\s]+?)\(\*\*[\s]*([\S\s]+?)[\s]*\*\)[\s]*?^[\s]*$" in
+  let res0 = "^[\\s]*(type [\\S\\s]+?)\\(\\*\\*[\\s]*([\\S\\s]+?)[\\s]*\\*\\)[\\s]*?^[\\s]*$" in
+  let res1 = "^[\\s]*(val .+?)[ \n]*\\(\\*\\*[ \n]*([\\S\\s]+?)[ \n]*\\*\\)" in
+  let res2 = "^[\\s]*(exception [\\S\\s]+?)\\(\\*\\*[\\s]*([\\S\\s]+?)[\\s]*\\*\\)[\\s]*?^[\\s]*$" in
 
   let s = get_content fname in
   let sections = extract_sections s in
@@ -120,8 +120,8 @@ let parse_one_mli fname =
 
 (** Extract function implementation from an ml file, return a hashtbl *)
 let locate_functions src_root impl_file =
-  let regs1 = "^[ ]*let[ ]*(.+?)[\s]+" in
-  let regs2 = "^[ ]*let[ ]*(.+?)[\s]*$" in
+  let regs1 = "^[ ]*let[ ]*(.+?)[\\s]+" in
+  let regs2 = "^[ ]*let[ ]*(.+?)[\\s]*$" in
   let regex1 = Re.Pcre.regexp regs1 in
   let regex2 = Re.Pcre.regexp regs2 in
   let impl = Hashtbl.create 512 in
