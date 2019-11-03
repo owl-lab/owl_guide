@@ -34,13 +34,14 @@ The project should also produce comprehensive learning materials to promote OCam
 Learning
 -------------------------------------------------
 
-The full documentation consists of two parts as following. The first part is a comprehensive tour of Owl system with many examples. The second part is the `API Reference` automatically built from Owl's repository. The API Reference covers most important functions and links back to their source code. The ODOC version can be accessed via `this link <https://ocaml.xyz/owl/>`_.
+The full documentation consists of two parts as following. The first part is a comprehensive tour of Owl system with many examples. The second part is the `API Reference` automatically built from Owl's repository. The API Reference covers most important functions and links back to their source code.
 
 .. toctree::
    :maxdepth: 1
 
    chapter/index
    apidoc/index
+   package/index
 
 
 
