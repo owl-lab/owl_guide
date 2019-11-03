@@ -10,7 +10,7 @@ API_DST="${ROOT}book/apidoc/"
 API_LST="${ROOT}bin/module.txt"
 
 # owlbarn github url and local folder
-BARN_URL="https://github.com/owlbarn/owlbarn.github.io.git"
+BARN_URL="git@github.com:owlbarn/owlbarn.github.io.git"
 BARN_DIR="${ROOT}_barn/owlbarn.github.io"
 
 
@@ -29,9 +29,7 @@ publish:
 	-git commit -am "edit ..." && git push origin master
 	@if test ! -d ${BARN_DIR}; then mkdir -p ${BARN_DIR} && git clone ${BARN_URL} ${BARN_DIR}; else cd ${BARN_DIR} && git pull origin master; fi
 	cp -r ${ROOT}book/_build/html/* ${BARN_DIR}
-	cd ${BARN_DIR}
-	-git commit -am "update doc by script ..."
-	-git push origin master
+	cd ${BARN_DIR} && git commit -am "update doc by script ..." && git push origin master
 
 
 pull-request:
