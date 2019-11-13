@@ -14,14 +14,12 @@ Thanks to the folks in `OCaml Labs <http://ocamllabs.io/>`_, OPAM makes package 
 
 .. code-block:: bash
 
+  opam depext owl
   opam install owl
 
+If you want to try the newest development features, I recommend the other ways to install Owl, as below.
 
-However, Owl's current version on OPAM is ``0.3.0``, and it lags way behind the development in master branch and misses many new features.
-
-On the other hand, this document is tightly synchronised with the master branch. This means that you may not be able to try out the stuff I teach here. If you want to try the newest features, I recommend the other ways to install Owl, as below.
-
-
+In case of linking issues, known to happen on `ubuntu`-based distribution. You will need to compile `openblas` by hand, and use the appropriate environment variables to point at your newly compiled library. You can use `owl's docker file <https://github.com/owlbarn/owl/blob/master/docker/Dockerfile.ubuntu>` as a reference for this.
 
 Option 2: Pull from Docker Hub
 -------------------------------------------------
