@@ -148,3 +148,13 @@ Project 14. Sublinear Algorithms in Owl
 By `Pratap Singh <https://github.com/pratapsingh1729>`_ (Harvard University, USA) | `Report <https://pratap.dev/ocaml/owl/count-min-sketch/sublinear-algorithms/countmin-sketch/>`_ | ongoing
 
 Sublinear algorithms are algorithms that give approximate solutions to problems with time or space complexity sublinear in the input size.  While previously the preserve of theoretical research, these methods are increasingly relevant for highly resource-constrained IoT devices receiving large amounts of data.  We seek to implement several useful sublinear algorithms in Owl, and evaluate their performance and real-world resource usage.  So far we have implemented the count-min sketch for approximate frequency counting and heavy-hitter finding.  Future possible areas for exploration include algorithms for approximate linear algebra, dimensionality reduction, stream sketching, and others.
+
+
+Project 15. Sublinear Algorithms in Owl
+-------------------------------------------------------------------------------
+
+By **Liang Wang** and **Jianxin Zhao** | `{github} <https://github.com/owlbarn/owl_symbolic>`_ | ongoing
+
+This project aims to implement symbolic computation atop of Owl. In symbolic computation, mathematical objects are manipulated symbolically like old-fashioned mathematicians' job. A symbolic maths library provides functionalities such as expression simplification, computing derivatives, integrals, etc. Symbolic maths has great value in scientific computing in a wide range of fields such as physics and geometry. Moreover, it also enables new opportunities in computation graph optimisation.
+
+As an important use case, a symbolic representation of computation can serve as an intermediate representation between Owl and accerlator frameworks. For example, ONNX is an open standard in industry for defining the graph structure of computations, and is widely supported by many mainstream deep learning frameworks. Therefore, via the symbolic layer, a computation defined in Owl can be converted into ONNX format and then executed on various hardware accelerators. 
