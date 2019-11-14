@@ -150,7 +150,7 @@ By `Pratap Singh <https://github.com/pratapsingh1729>`_ (Harvard University, USA
 Sublinear algorithms are algorithms that give approximate solutions to problems with time or space complexity sublinear in the input size.  While previously the preserve of theoretical research, these methods are increasingly relevant for highly resource-constrained IoT devices receiving large amounts of data.  We seek to implement several useful sublinear algorithms in Owl, and evaluate their performance and real-world resource usage.  So far we have implemented the count-min sketch for approximate frequency counting and heavy-hitter finding.  Future possible areas for exploration include algorithms for approximate linear algebra, dimensionality reduction, stream sketching, and others.
 
 
-Project 15. Sublinear Algorithms in Owl
+Project 15. Symbolic Toolbox
 -------------------------------------------------------------------------------
 
 By **Liang Wang** and **Jianxin Zhao** | `{github} <https://github.com/owlbarn/owl_symbolic>`_ | ongoing
