@@ -36,12 +36,9 @@ Learning
 
 The full documentation consists of two parts as following. The first part is a comprehensive tour of Owl system with many examples. The second part is the `API Reference` automatically built from Owl's repository. The API Reference covers most important functions and links back to their source code.
 
-.. toctree::
-   :maxdepth: 1
-
-   chapter/index
-   apidoc/index
-   package/index
+* `Owl Tutorial Book <https://ocaml.xyz/owl_tutorials/>`_ (working in progress)
+* `Owl API Reference <apidoc/index.html>`_
+* `Packages Reference <package/index.html>`_
 
 
 
