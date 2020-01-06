@@ -8,10 +8,6 @@ OCaml Scientific Computing
 
 Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by `Liang Wang <https://www.cl.cam.ac.uk/~lw525/>`_. The source code is licensed under `MIT <https://github.com/owlbarn/owl/blob/master/LICENSE.md>`_ and hosted on the `github <https://github.com/owlbarn/owl>`_.
 
-You can learn how to use Owl using our tutorial book and API reference.
-
-* `Owl Tutorial Book <https://ocaml.xyz/book/>`_ (working in progress)
-* `Packages Reference <package/index.html>`_
 
 
 Mission
@@ -21,7 +17,10 @@ Our mission is to push the frontier of high-performance scientific computing, an
 
 Owl should fully implement advanced numerical methods, with inherent support for parallel and distributed computing, as well as a complete set of tooling from designing, prototyping, and deploying modern numerical applications. The project provides both researchers and industry programmers a powerful framework to write concise, fast and safe analytical code.
 
-The project should also produce comprehensive learning materials to promote OCaml learning. We hope the project can help more people in learning OCaml by offering them a "numerical path" to the functional programming world.
+The project should also produce comprehensive learning materials to promote OCaml learning. You can learn how to use Owl using our tutorial book and API reference.
+
+* `Owl Tutorial Book <https://ocaml.xyz/book/>`_ (working in progress)
+* `Packages Reference <package/index.html>`_
 
 
 
@@ -30,9 +29,9 @@ Projects
 
 Here is a list of on-going and finished Owl-related projects, as well as some examples to showcase Owl's capability.
 
-* :doc:`project/proposal`
-* :doc:`project/finished`
-* `Google Inception Demo <http://demo.ocaml.xyz/index.html>`_
+* `Proposed Sub-Projects <https://ocaml.xyz/project/proposal.html>`_
+* `Finished Sub-Projects <https://ocaml.xyz/project/finished.html>`_
+* `Demo Website <http://demo.ocaml.xyz/index.html>`_
 
 
 
