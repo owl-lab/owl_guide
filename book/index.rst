@@ -8,6 +8,8 @@ OCaml Scientific Computing
 
 Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by `Liang Wang <https://www.cl.cam.ac.uk/~lw525/>`_. The source code is `{licensed under MIT} <https://github.com/owlbarn/owl/blob/master/LICENSE.md>`_ and hosted on the `{Github Repository} <https://github.com/ryanrhymes/owl>`_.
 
+* `Owl Tutorial Book <https://ocaml.xyz/book/>`_ (working in progress)
+* `Packages Reference <package/index.html>`_
 
 
 Funding
@@ -31,17 +33,6 @@ The project should also produce comprehensive learning materials to promote OCam
 
 
 
-Learning
--------------------------------------------------
-
-The full documentation consists of two parts as following. The first part is a comprehensive tour of Owl system with many examples. The second part is the `API Reference` automatically built from Owl's repository. The API Reference covers most important functions and links back to their source code.
-
-* `Owl Tutorial Book <https://ocaml.xyz/book/>`_ (working in progress)
-* `Owl API Reference <apidoc/index.html>`_
-* `Packages Reference <package/index.html>`_
-
-
-
 Projects
 -------------------------------------------------
 
@@ -50,7 +41,6 @@ Here is a list of on-going and finished Owl-related projects, as well as some ex
 * :doc:`project/proposal`
 * :doc:`project/finished`
 * `Google Inception Demo <http://demo.ocaml.xyz/index.html>`_
-* `Neural Style Transfer Demo <http://demo.ocaml.xyz/neuraltrans.html>`_
 
 
 
