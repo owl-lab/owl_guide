@@ -6,7 +6,7 @@
 OCaml Scientific Computing
 =================================================
 
-Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by `Liang Wang <https://www.cl.cam.ac.uk/~lw525/>`_. The source code is licensed under `MIT <https://github.com/owlbarn/owl/blob/master/LICENSE.md>`_ and hosted on the `github <https://github.com/owlbarn/owl>`_.
+Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by `Liang Wang <https://www.cl.cam.ac.uk/~lw525/>`_. The source code is licensed under `MIT <https://github.com/owlbarn/owl/blob/master/LICENSE.md>`_ and hosted on the `Github <https://github.com/owlbarn/owl>`_.
 
 
 
@@ -29,7 +29,7 @@ Here is a list of on-going and finished Owl-related projects, as well as some ex
 
 * `Proposed Sub-Projects <https://ocaml.xyz/project/proposal.html>`_
 * `Finished Sub-Projects <https://ocaml.xyz/project/finished.html>`_
-* `Demo Website <http://demo.ocaml.xyz/index.html>`_
+* `Owl Demo Website <http://demo.ocaml.xyz/index.html>`_
 
 
 
@@ -51,9 +51,9 @@ Owl owes a great debt of gratitude to its generous sponsors, contributors, and o
 
 * `Sponsors <https://ocaml.xyz/project/sponsors.html>`_
 * `Backers <https://ocaml.xyz/project/backers.html>`_
-* `Acknowledgement <https://ocaml.xyz/project/acknowledgement.html>`_
+* `Contributors <https://ocaml.xyz/project/acknowledgement.html>`_
 
-We are actively seeking funding opportunities to support our research and development. Financial support can help us focus on building the most powerful system for modern scientific computing.
+We are actively seeking funding opportunities to support our research and development.
 
 * For institutional funding, please `contact me <mailto:liang@ocaml.xyz>`_ directly.
 * For individuals, please use this `Paypal donation link <https://www.paypal.me/ocaml>`_.
