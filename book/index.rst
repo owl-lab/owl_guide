@@ -6,20 +6,12 @@
 OCaml Scientific Computing
 =================================================
 
-Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by `Liang Wang <https://www.cl.cam.ac.uk/~lw525/>`_. The source code is `{licensed under MIT} <https://github.com/owlbarn/owl/blob/master/LICENSE.md>`_ and hosted on the `{Github Repository} <https://github.com/ryanrhymes/owl>`_.
+Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by `Liang Wang <https://www.cl.cam.ac.uk/~lw525/>`_. The source code is licensed under `MIT <https://github.com/owlbarn/owl/blob/master/LICENSE.md>`_ and hosted on the `github <https://github.com/owlbarn/owl>`_.
+
+You can learn how to use Owl using our tutorial book and API reference.
 
 * `Owl Tutorial Book <https://ocaml.xyz/book/>`_ (working in progress)
 * `Packages Reference <package/index.html>`_
-
-
-Funding
--------------------------------------------------
-
-We are actively seeking funding opportunities to support our research and development. Financial support can help us focus on building the most powerful system for modern scientific computing.
-
-- For institutional funding, please `contact me <mailto:liang@ocaml.xyz>`_ directly.
-- For individuals, please use this `Paypal donation link <https://www.paypal.me/ocaml>`_.
-
 
 
 Mission
@@ -64,6 +56,10 @@ Owl owes a great debt of gratitude to its generous sponsors, contributors, and o
 * :doc:`project/backers`
 * :doc:`project/acknowledgement`
 
+We are actively seeking funding opportunities to support our research and development. Financial support can help us focus on building the most powerful system for modern scientific computing.
+
+- For institutional funding, please `contact me <mailto:liang@ocaml.xyz>`_ directly.
+- For individuals, please use this `Paypal donation link <https://www.paypal.me/ocaml>`_.
 
 
 .. Comment out for the time being
