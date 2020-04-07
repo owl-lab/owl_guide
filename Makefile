@@ -1,9 +1,18 @@
+# Please only configure API_SRC to point to correct Owl src folder.
+API_SRC="/home/liang/code/owl/src/"
+
+# No need to touch the following settings.
 ROOT := $(dir $(lastword $(MAKEFILE_LIST)))
+PARSER ="${ROOT}bin/apidoc.ml"
+API_DST="${ROOT}book/apidoc/"
+API_LST="${ROOT}bin/module.txt"
+
 BARN_URL="git@github.com:owlbarn/owlbarn.github.io.git"
 BARN_DIR="${ROOT}_barn/owlbarn.github.io"
 
 
 all:
+	${PARSER} ${API_SRC} ${API_DST} ${API_LST}
 	cd ${ROOT}book && make html && cd -
 
 
