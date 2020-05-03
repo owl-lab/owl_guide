@@ -1,6 +1,6 @@
 {% extends "!layout.html" %}
 
-{% block footer %}
+{%- block extrahead %}
 {{ super() }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script>
@@ -12,4 +12,9 @@
   gtag('config', 'UA-123353217-1');
 </script>
 <script data-ad-client="ca-pub-1868946892712371" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+<!-- Extra footer if necessary -->
 {% endblock %}
