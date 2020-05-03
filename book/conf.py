@@ -50,7 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Owl Numerical Library'
-copyright = u'2019, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a> \
+copyright = u'2018-2020, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a> \
   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>'
 author = u'Liang Wang'
 
