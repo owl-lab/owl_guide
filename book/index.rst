@@ -17,7 +17,7 @@ Our mission is to push the frontier of high-performance scientific computing, pr
 
 The project produces comprehensive learning materials to promote OCaml learning. You can learn how to use Owl using our tutorial book.
 
-Read **`Owl Tutorial Book <https://ocaml.xyz/book/>`_**
+Read **<< `Owl Tutorial Book <https://ocaml.xyz/book/>`_ >>**
 
 
 
