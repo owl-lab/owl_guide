@@ -39,7 +39,6 @@ You can reach us in the following ways. Regarding the matters on funding and col
 
 * `Email Us <mailto:liang@ocaml.xyz>`_
 * `Slack Channel <https://join.slack.com/t/owl-dev-team/shared_invite/enQtMjQ3OTM1MDY4MDIwLTcxYTlkODhiNGI4YjVkN2FmMjhlZGZhYzhkMTFhZjY0OGI1NDY5M2Y2NmYzNjBhZmRhZGE0NTY1ZjA5MTk4MjI>`_
-* `Issue Tracker <https://github.com/ryanrhymes/owl/issues>`_
 
 
 
