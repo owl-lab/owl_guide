@@ -45,7 +45,7 @@ You can reach us in the following ways. Regarding the matters on funding and col
 Sponsors
 -------------------------------------------------
 
-Owl owes a great debt of gratitude to its generous sponsors, contributors, and other open source projects. Please refer to our `Sponsors <https://ocaml.xyz/project/sponsors.html>`_, `Backers <https://ocaml.xyz/project/backers.html>`_, and `Contributors <https://ocaml.xyz/project/acknowledgement.html>`_
+Owl owes a great debt of gratitude to its generous sponsors, contributors, and other open source projects. Please refer to our `Sponsors <https://ocaml.xyz/project/sponsors.html>`_, `Backers <https://ocaml.xyz/project/backers.html>`_, and `Contributors <https://ocaml.xyz/project/acknowledgement.html>`_.
 
 We are actively seeking funding opportunities to support our research and development.
 
