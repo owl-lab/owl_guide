@@ -15,9 +15,9 @@ Mission
 
 Our mission is to push the frontier of high-performance scientific computing, provide both researchers and industry programmers a powerful framework to write concise, fast and safe analytical code. The system aims to serve as the de-facto tool for computation intensive tasks in OCaml.
 
-The project produces comprehensive learning materials to promote OCaml learning. You can learn how to use Owl using our tutorial book.
+The project produces comprehensive learning materials to promote OCaml learning. You can learn how to use Owl using our tutorial book and blogs.
 
-Read `<< Owl Tutorial Book >> <https://ocaml.xyz/book/>`_
+Read the `<< Owl Tutorial Book >> <https://ocaml.xyz/book/>`_
 
 
 
