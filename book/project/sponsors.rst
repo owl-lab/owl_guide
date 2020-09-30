@@ -12,13 +12,23 @@ If you want to become a sponsor, please `contact me <mailto:liang@ocaml.xyz>`_
    :align: left
    :alt: ocamllabs
 
-`OCaml Labs <http://ocamllabs.io/>`_ has been providing various types of
+The `OCaml Labs <http://ocamllabs.io/>`_ has been providing various types of
 support including computation resources, internship and studentship revolving
 around Owl's research and development.
 
 |
 |
 
+.. figure:: ../figure/logo/ocsf.png
+   :width: 100px
+   :align: left
+   :alt: ocsf
+
+The `OCaml Software Foundation <https://ocaml-sf.org//>`_ supports our R&D
+by kindly providing finance to organise a development sprint.
+
+|
+|
 
 
 Collaborators
